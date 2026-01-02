@@ -1,0 +1,30 @@
+    <!-- FEATURED PRODUCTS -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 text-center mb-12">Featured Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {% for item in FeaturedProductsList %}
+                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-zinc-300 hover:shadow-sm hover:scale-105 transition-all cursor-pointer">
+                    <img
+                        src="{{ item.image }}"
+                        alt="Wireless Headphones"
+                        class="w-full h-56 object-cover"
+                    />
+                    <div class="p-5">
+                        <h3 class="text-base font-medium text-zinc-900 mb-2">{{ item.title }}</h3>
+                        <div class="flex items-center mb-3 text-xs text-zinc-500">
+                            <span>{{ item.rating }} *</span>
+                            <span class="ml-2">({{ item.review_count }})</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xl font-semibold text-zinc-900">{{item.price}}</span>
+                            <button class="px-4 py-2 bg-zinc-900 text-white text-sm rounded-lg hover:bg-zinc-800 transition-colors">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
