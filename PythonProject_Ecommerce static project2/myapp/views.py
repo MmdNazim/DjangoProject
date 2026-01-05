@@ -161,8 +161,136 @@ def home(request):
     context = {'categories': categories, 'FeaturedProductsList':FeaturedProductsList}
     return render(request, 'index.html', context)
 
+
+
 def product(request):
-    return render(request, 'product.html')
+
+
+    CustomerReviewsList = [
+        {
+            "name": "Emily Rodriguez",
+            "rating": 5,
+            "date": "November 5, 2024",
+            "comment": "Perfect for my daily commute! The ANC blocks out all the subway noise. Sound quality is crystal clear and the design is sleek. Worth every penny."
+        },
+        {
+            "name": "James Walker",
+            "rating": 4,
+            "date": "October 28, 2024",
+            "comment": "Very comfortable to wear for long hours. Battery life is impressive, but the price feels a bit high."
+        },
+        {
+            "name": "Ayesha Khan",
+            "rating": 5,
+            "date": "October 15, 2024",
+            "comment": "Amazing sound quality and premium build. Noise cancellation works great even in busy environments."
+        },
+        {
+            "name": "Daniel Smith",
+            "rating": 3,
+            "date": "September 30, 2024",
+            "comment": "Sound is good, but Bluetooth connection sometimes drops. Could be improved with updates."
+        },
+        {
+            "name": "Rahul Mehta",
+            "rating": 4,
+            "date": "September 20, 2024",
+            "comment": "Great headphones for work and travel. Comfortable cushions and clear audio."
+        },
+        {
+            "name": "Sophia Lee",
+            "rating": 5,
+            "date": "September 10, 2024",
+            "comment": "Absolutely love these headphones! Stylish, lightweight, and excellent noise cancellation."
+        },
+        {
+            "name": "Michael Brown",
+            "rating": 4,
+            "date": "August 29, 2024",
+            "comment": "Good overall performance. Bass is strong and battery easily lasts a full day."
+        },
+        {
+            "name": "Fatima Noor",
+            "rating": 5,
+            "date": "August 18, 2024",
+            "comment": "Best headphones I’ve owned so far. Perfect balance between comfort and sound quality."
+        },
+        {
+            "name": "Chris Johnson",
+            "rating": 3,
+            "date": "August 5, 2024",
+            "comment": "Decent sound, but expected better noise cancellation at this price point."
+        },
+        {
+            "name": "Nusrat Jahan",
+            "rating": 4,
+            "date": "July 25, 2024",
+            "comment": "Very good for online meetings and music. Mic quality is clear and reliable."
+        }
+    ]
+
+    RelatedProductsList = [
+        {
+            "title": "Wireless Earbuds Pro",
+            "rating": 5,
+            "price": 89.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Noise Cancelling Headphones",
+            "rating": 4,
+            "price": 149.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Bluetooth Speaker Mini",
+            "rating": 4,
+            "price": 59.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Gaming Headset X",
+            "rating": 5,
+            "price": 129.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Studio Monitor Headphones",
+            "rating": 3,
+            "price": 99.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Wireless Neckband",
+            "rating": 4,
+            "price": 39.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Portable Bluetooth Speaker",
+            "rating": 5,
+            "price": 79.99,
+            "image": "https://placehold.co/200x200"
+        },
+        {
+            "title": "Over-Ear Comfort Headphones",
+            "rating": 4,
+            "price": 109.99,
+            "image": "https://placehold.co/200x200"
+        }
+    ]
+
+    ProductSpecificationList = {
+        "Brand": "AudioTech Pro",
+        "Model": "AT-WH3000",
+        "Material": "Aluminum & Leather",
+        "Weight": "250g",
+        "Warranty": "2 Years",
+        "Color": "Midnight Black"
+        }
+
+    context = {'CustomerReviewsList': CustomerReviewsList, 'RelatedProductsList': RelatedProductsList, 'ProductSpecificationList': ProductSpecificationList}
+    return render(request, 'product.html', context)
 
 def cart(request):
     return render(request, 'cart.html')

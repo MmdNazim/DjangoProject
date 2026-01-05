@@ -25,83 +25,21 @@
       <!-- Review Cards -->
       <div class="space-y-6">
         <!-- Review 1 -->
+        {% for item in CustomerReviewsList %}
         <div class="border-b border-gray-200 pb-6">
           <div class="flex items-start justify-between mb-3">
             <div>
-              <h3 class="font-medium text-zinc-900">Sarah Mitchell</h3>
+              <h3 class="font-medium text-zinc-900">{{item.name}}</h3>
               <div class="flex text-yellow-500 text-sm mt-1">
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
-                <span>★</span>
+                <span>{{item.rating}}★</span>
               </div>
             </div>
-            <span class="text-xs text-zinc-500">November 15, 2024</span>
+            <span class="text-xs text-zinc-500">{{item.date}}</span>
           </div>
           <p class="text-sm text-zinc-600 leading-relaxed">
-            Absolutely love these headphones! The sound quality is amazing and the noise cancellation works perfectly. I use them daily for work calls and music. Best purchase I've made this year!
+            {{item.comment}}
           </p>
         </div>
-
-        <!-- Review 2 -->
-        <div class="border-b border-gray-200 pb-6">
-          <div class="flex items-start justify-between mb-3">
-            <div>
-              <h4 class="font-bold text-gray-900">Michael Chen</h4>
-              <div class="flex text-yellow-400 text-sm mt-1">
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-                <span class="text-gray-300">⭐</span>
-              </div>
-            </div>
-            <span class="text-sm text-gray-500">November 10, 2024</span>
-          </div>
-          <p class="text-gray-700 leading-relaxed">
-            Great headphones overall. The battery life is impressive and they're very comfortable for long listening sessions. Only minor complaint is they feel a bit tight at first, but they break in nicely.
-          </p>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="border-b border-gray-200 pb-6">
-          <div class="flex items-start justify-between mb-3">
-            <div>
-              <h4 class="font-bold text-gray-900">Emily Rodriguez</h4>
-              <div class="flex text-yellow-400 text-sm mt-1">
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-              </div>
-            </div>
-            <span class="text-sm text-gray-500">November 5, 2024</span>
-          </div>
-          <p class="text-gray-700 leading-relaxed">
-            Perfect for my daily commute! The ANC blocks out all the subway noise. Sound quality is crystal clear and the design is sleek. Worth every penny.
-          </p>
-        </div>
-
-        <!-- Review 4 -->
-        <div class="pb-6">
-          <div class="flex items-start justify-between mb-3">
-            <div>
-              <h4 class="font-bold text-gray-900">David Kim</h4>
-              <div class="flex text-yellow-400 text-sm mt-1">
-                <span>⭐</span>
-                <span>⭐</span>
-                <span>⭐</span>
-                <span class="text-gray-300">⭐</span>
-                <span class="text-gray-300">⭐</span>
-              </div>
-            </div>
-            <span class="text-sm text-gray-500">October 28, 2024</span>
-          </div>
-          <p class="text-gray-700 leading-relaxed">
-            Good headphones but expected more for the price. Sound is good but not exceptional. Battery life is as advertised though, which is great.
-          </p>
-        </div>
+        {% endfor %}
       </div>
     </section>
