@@ -165,7 +165,7 @@ def home(request):
 
 def product(request):
 
-
+#Demo Data:
     CustomerReviewsList = [
         {
             "name": "Emily Rodriguez",
