@@ -1,21 +1,21 @@
   <!-- MAIN CART CONTENT -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
       <!-- LEFT SIDE: CART ITEMS LIST -->
       <div class="lg:col-span-2 space-y-4">
 
         <!-- Cart Item 1 -->
+        {% for item in CartList %}
         <div class="bg-white border border-gray-200 rounded-lg p-6 hover:border-zinc-300 hover:shadow-sm transition-all">
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <!-- Product Image -->
-            <img src="https://placehold.co/120x120" alt="Wireless Headphones" class="w-24 h-24 object-cover rounded-lg">
+            <img src="{{item.image}}" alt="Wireless Headphones" class="w-24 h-24 object-cover rounded-lg">
 
             <!-- Product Info -->
             <div class="flex-1">
-              <h3 class="text-base font-medium text-zinc-900">Wireless Headphones</h3>
-              <p class="text-zinc-600 text-sm mt-1">Premium sound quality</p>
-              <p class="text-zinc-900 font-semibold mt-2">$79.99</p>
+              <h3 class="text-base font-medium text-zinc-900">{{item.name}}</h3>
+              <p class="text-zinc-600 text-sm mt-1">{{item.description}}</p>
+              <p class="text-zinc-900 font-semibold mt-2">${{item.price}}</p>
             </div>
 
             <!-- Quantity Selector -->
@@ -25,7 +25,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
                 </svg>
               </button>
-              <span class="text-gray-900 font-semibold w-8 text-center">1</span>
+              <span class="text-gray-900 font-semibold w-8 text-center">{{item.quantity}}</span>
               <button class="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
@@ -35,7 +35,7 @@
 
             <!-- Subtotal & Remove -->
             <div class="flex flex-col items-end space-y-2">
-              <p class="text-lg font-semibold text-zinc-900">$79.99</p>
+              <p class="text-lg font-semibold text-zinc-900">${{item.price}}</p>
               <button class="text-red-600 hover:text-red-800 transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -44,78 +44,8 @@
             </div>
           </div>
         </div>
+        {% endfor %}
 
-        <!-- Cart Item 2 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:border-zinc-300 hover:shadow-sm transition-all">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <img src="https://placehold.co/120x120" alt="Smart Watch" class="w-24 h-24 object-cover rounded-lg">
-
-            <div class="flex-1">
-              <h3 class="text-base font-medium text-zinc-900">Smart Watch</h3>
-              <p class="text-zinc-600 text-sm mt-1">Fitness tracking & notifications</p>
-              <p class="text-zinc-900 font-semibold mt-2">$149.99</p>
-            </div>
-
-            <div class="flex items-center space-x-3">
-              <button class="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
-                </svg>
-              </button>
-              <span class="text-gray-900 font-semibold w-8 text-center">2</span>
-              <button class="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div class="flex flex-col items-end space-y-2">
-              <p class="text-lg font-semibold text-zinc-900">$299.98</p>
-              <button class="text-red-600 hover:text-red-800 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Cart Item 3 -->
-        <div class="bg-white border border-gray-200 rounded-lg p-6 hover:border-zinc-300 hover:shadow-sm transition-all">
-          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <img src="https://placehold.co/120x120" alt="Laptop Backpack" class="w-24 h-24 object-cover rounded-lg">
-
-            <div class="flex-1">
-              <h3 class="text-base font-medium text-zinc-900">Laptop Backpack</h3>
-              <p class="text-zinc-600 text-sm mt-1">Water-resistant, 15" laptop compartment</p>
-              <p class="text-zinc-900 font-semibold mt-2">$49.99</p>
-            </div>
-
-            <div class="flex items-center space-x-3">
-              <button class="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
-                </svg>
-              </button>
-              <span class="text-gray-900 font-semibold w-8 text-center">1</span>
-              <button class="w-8 h-8 rounded-lg border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                </svg>
-              </button>
-            </div>
-
-            <div class="flex flex-col items-end space-y-2">
-              <p class="text-lg font-semibold text-zinc-900">$49.99</p>
-              <button class="text-red-600 hover:text-red-800 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
 
         <!-- COUPON / PROMO CODE FIELD -->
         <div class="bg-white border border-gray-200 rounded-lg p-6">
@@ -135,11 +65,8 @@
             Continue Shopping
           </a>
         </div>
-
       </div>
-
         {% include "component/cart/OrderSummary.html" %}
-
     </div>
 
     <!-- EMPTY CART STATE (Hidden by default, shows when cart is empty) -->
@@ -155,5 +82,3 @@
         </a>
       </div>
     </div>
-
-  </main>

@@ -1,9 +1,10 @@
 {% extends 'layout/Layout.html'%}
 
 {% block content %}
-{% include "component/cart/CartHero.html" %}
-{% include "component/cart/CartList.html" %}
-{% include "component/cart/OrderSummary.html" %}
-{% include "component/common/OfferBanner.html" %}
-{% include "component/common/Newsletter.html" %}
+         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+         {% include "component/cart/CartHero.html" %}
+         {% include "component/cart/CartList.html" %}
+         </main>
+         {% include "component/common/OfferBanner.html" %}
+         {% include "component/common/Newsletter.html" %}
 {% endblock %}

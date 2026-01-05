@@ -165,7 +165,7 @@ def home(request):
 
 def product(request):
 
-#Demo Data:
+
     CustomerReviewsList = [
         {
             "name": "Emily Rodriguez",
@@ -293,7 +293,53 @@ def product(request):
     return render(request, 'product.html', context)
 
 def cart(request):
-    return render(request, 'cart.html')
+    CartList = [
+        {
+            "name": "Wireless Headphones",
+            "description": "Premium sound quality",
+            "price": 79.99,
+            "quantity": 1,
+            "image": "https://placehold.co/120x120"
+        },
+        {
+            "name": "Bluetooth Speaker",
+            "description": "Deep bass and portable design",
+            "price": 49.99,
+            "quantity": 2,
+            "image": "https://placehold.co/120x120"
+        },
+        {
+            "name": "Noise Cancelling Earbuds",
+            "description": "Crystal clear calls",
+            "price": 59.99,
+            "quantity": 1,
+            "image": "https://placehold.co/120x120"
+        },
+        {
+            "name": "Gaming Headset",
+            "description": "Immersive surround sound",
+            "price": 99.99,
+            "quantity": 1,
+            "image": "https://placehold.co/120x120"
+        },
+        {
+            "name": "Smart Watch",
+            "description": "Fitness and health tracking",
+            "price": 129.99,
+            "quantity": 1,
+            "image": "https://placehold.co/120x120"
+        }
+    ]
+
+    OrderSummary = {
+    "subtotal": 429.96,
+    "shipping": 15.00,
+    "tax": 35.50,
+    "total": 480.46
+}
+
+    context = {'CartList': CartList, 'OrderSummary': OrderSummary}
+    return render(request, 'cart.html', context)
 
 def checkout(request):
     return render(request, 'checkout.html')
