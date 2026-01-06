@@ -342,7 +342,56 @@ def cart(request):
     return render(request, 'cart.html', context)
 
 def checkout(request):
-    return render(request, 'checkout.html')
+
+    PaymentMethod = {
+        "card": "Credit/Debit Card",
+        "cod": "Cash on Delivery (COD)",
+        "paypal": "PayPal",
+        "stripe": "Stripe"
+    }
+
+    OrderSummaryList = [
+        {
+            "image": "https://placehold.co/60x60/f5f5f5/a3a3a3",
+            "name": "Wireless Headphones",
+            "quantity": 1,
+            "price": 79.99
+        },
+        {
+            "image": "https://placehold.co/60x60/f5f5f5/a3a3a3",
+            "name": "Bluetooth Speaker",
+            "quantity": 2,
+            "price": 129.98
+        },
+        {
+            "image": "https://placehold.co/60x60/f5f5f5/a3a3a3",
+            "name": "Smart Watch",
+            "quantity": 1,
+            "price": 199.99
+        },
+        {
+            "image": "https://placehold.co/60x60/f5f5f5/a3a3a3",
+            "name": "USB-C Charger",
+            "quantity": 3,
+            "price": 59.97
+        },
+        {
+            "image": "https://placehold.co/60x60/f5f5f5/a3a3a3",
+            "name": "Wireless Mouse",
+            "quantity": 1,
+            "price": 39.99
+        }
+    ]
+
+    PriceBreakdown = {
+        "subtotal": 747.98,
+        "shipping": 15.00,
+        "tax": 76.30,
+        "total": 839.28
+    }
+
+    context = {'PaymentMethod': PaymentMethod, 'OrderSummaryList': OrderSummaryList, 'PriceBreakdown': PriceBreakdown}
+    return render(request, 'checkout.html', context)
 
 
 

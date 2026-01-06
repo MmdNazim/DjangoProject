@@ -6,34 +6,16 @@
                     <!-- Product List -->
                     <div class="space-y-4 mb-6 pb-6 border-b border-gray-200">
                         <!-- Product 1 -->
+                        {% for item in OrderSummaryList %}
                         <div class="flex items-center space-x-4">
-                            <img src="https://placehold.co/60x60/f5f5f5/a3a3a3" alt="Product" class="w-12 h-12 rounded border border-gray-200">
+                            <img src="{{item.image}}" alt="Product" class="w-12 h-12 rounded border border-gray-200">
                             <div class="flex-1">
-                                <h3 class="text-sm font-medium text-zinc-900">Wireless Headphones</h3>
-                                <p class="text-xs text-zinc-500">Qty: 1</p>
+                                <h3 class="text-sm font-medium text-zinc-900">{{item.name}}</h3>
+                                <p class="text-xs text-zinc-500">Qty: {{item.quantity}}</p>
                             </div>
-                            <span class="text-sm font-medium text-zinc-900">$79.99</span>
+                            <span class="text-sm font-medium text-zinc-900">${{item.price}}</span>
                         </div>
-
-                        <!-- Product 2 -->
-                        <div class="flex items-center space-x-4">
-                            <img src="https://placehold.co/60x60/f5f5f5/a3a3a3" alt="Product" class="w-12 h-12 rounded border border-gray-200">
-                            <div class="flex-1">
-                                <h3 class="text-sm font-medium text-zinc-900">Smart Watch</h3>
-                                <p class="text-xs text-zinc-500">Qty: 1</p>
-                            </div>
-                            <span class="text-sm font-medium text-zinc-900">$399.00</span>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="flex items-center space-x-4">
-                            <img src="https://placehold.co/60x60/f5f5f5/a3a3a3" alt="Product" class="w-12 h-12 rounded border border-gray-200">
-                            <div class="flex-1">
-                                <h3 class="text-sm font-medium text-zinc-900">Phone Case</h3>
-                                <p class="text-xs text-zinc-500">Qty: 2</p>
-                            </div>
-                            <span class="text-sm font-medium text-zinc-900">$49.98</span>
-                        </div>
+                        {% endfor%}
                     </div>
 
                     <!-- Coupon Code -->
@@ -49,19 +31,19 @@
                     <div class="space-y-3 mb-6">
                         <div class="flex justify-between text-gray-600">
                             <span>Subtotal</span>
-                            <span>$747.98</span>
+                            <span>${{PriceBreakdown.subtotal}}</span>
                         </div>
                         <div class="flex justify-between text-gray-600">
                             <span>Shipping</span>
-                            <span>$15.00</span>
+                            <span>${{PriceBreakdown.shipping}}</span>
                         </div>
                         <div class="flex justify-between text-gray-600">
                             <span>Tax</span>
-                            <span>$76.30</span>
+                            <span>${{PriceBreakdown.tax}}</span>
                         </div>
                         <div class="border-t pt-3 flex justify-between text-lg font-bold text-gray-900">
                             <span>Grand Total</span>
-                            <span>$839.28</span>
+                            <span>${{PriceBreakdown.total}}</span>
                         </div>
                     </div>
 
