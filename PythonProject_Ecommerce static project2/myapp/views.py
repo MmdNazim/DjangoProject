@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from datetime import datetime, timedelta
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseNotFound
 
 
 def home(request):
@@ -392,6 +393,35 @@ def checkout(request):
 
     context = {'PaymentMethod': PaymentMethod, 'OrderSummaryList': OrderSummaryList, 'PriceBreakdown': PriceBreakdown}
     return render(request, 'checkout.html', context)
+
+
+#Response:
+def TypesOfResponse(request):
+    #return HttpResponse("plain text")   Note: simple plain text response
+    #return HttpResponse(10)             Note: number response
+    #return HttpResponse(True)           Note: Boolean Data response
+    #return JsonResponse({"email":"na@gmail.com", "pass":"12345"})      Note: Json response
+    #return HttpResponseRedirect('/')     Note: redirect response
+    #return HttpResponseNotFound('page not found')      Note: HttpResponseNotFound response
+    #return HttpResponseNotFound('page not found', status=404)        Note: HttpResponseNotFound with status code response
+
+    """
+    response =  HttpResponseNotFound('page not found', status=404)    Note: eikhane shikhlam custom header response
+    response["token"] = "123ABC"
+    return response
+    """
+
+    """
+    response = HttpResponse("plain text")
+    response.set_cookie("login_cookie", "123ASD")             Note: eikhane shikhlam cookie response
+    return response
+    """
+
+    return render(request, 'checkout.html')             #Note: eikhane shikhlam templates response
+
+
+
+
 
 
 
