@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from datetime import datetime, timedelta
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseNotFound
+from django.views.decorators.csrf import csrf_exempt
 
 
 def home(request):
@@ -417,7 +418,36 @@ def TypesOfResponse(request):
     return response
     """
 
-    return render(request, 'checkout.html')             #Note: eikhane shikhlam templates response
+    #return render(request, 'checkout.html')             #Note: eikhane shikhlam templates response
+
+
+#Request:
+#Request Method-> POST, GET, PUT, DELETE, PATCH
+"""
+@csrf_exempt
+def TypesOfRequest(request):
+    if request.method == "POST":
+        return HttpResponse("Post Method")
+
+    if request.method == "GET":
+        return HttpResponse("Get Method")
+
+    if request.method == "PUT":
+        return HttpResponse("Put Method")
+
+    if request.method == "PATCH":
+        return HttpResponse("PATCH Method")
+
+    if request.method == "DELETE":
+        return HttpResponse("DELETE Method")
+"""
+
+#Request with query string:
+def TypesOfRequest(request):
+    return
+
+
+
 
 
 

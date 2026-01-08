@@ -7,5 +7,6 @@ urlpatterns = [
     path('cart/', views.cart),
     path('checkout/', views.checkout),
     path('typesofresponse/', views.TypesOfResponse),
+    path('typesofrequest/', views.TypesOfRequest),
 
 ]
