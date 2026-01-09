@@ -1,3 +1,5 @@
+import json
+
 from django.shortcuts import render
 from datetime import datetime, timedelta
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseNotFound
@@ -442,9 +444,40 @@ def TypesOfRequest(request):
         return HttpResponse("DELETE Method")
 """
 
+"""
 #Request with query string:
+@csrf_exempt
 def TypesOfRequest(request):
-    return
+    name = request.GET.get("name")
+    city = request.GET.get("city")
+    return HttpResponse(f"{name}, {city}")
+"""
+
+"""
+#Request with custom header:
+@csrf_exempt
+def TypesOfRequest(request):
+    token = request.headers.get("token")
+    password = request.headers.get("password")
+    return HttpResponse(f"{token}, {password}")
+"""
+
+"""
+#Request Form Data:   Note:"Form Data" always "POST" method e kaj kre
+@csrf_exempt
+def TypesOfRequest(request):
+    if request.method == "POST":
+        data = request.POST.dict()
+        return JsonResponse(data)
+"""
+
+#Request With Json Body:
+@csrf_exempt
+def TypesOfRequest(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        return JsonResponse(data)
+
 
 
 
