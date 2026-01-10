@@ -424,8 +424,10 @@ def TypesOfResponse(request):
 
 
 #Request:
-#Request Method-> POST, GET, PUT, DELETE, PATCH
+
 """
+#Request Method-> POST, GET, PUT, DELETE, PATCH
+
 @csrf_exempt
 def TypesOfRequest(request):
     if request.method == "POST":
